@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# bitwarden CLI (command line) lookup script
-
 LOOKUP_ITEM=$1
 
 if [[ "XX${LOOKUP_ITEM}XX" == "XXXX" ]];then
@@ -9,7 +7,6 @@ if [[ "XX${LOOKUP_ITEM}XX" == "XXXX" ]];then
    exit
 fi
 
-bw list items --search "${LOOKUP_ITEM}" --session ${BW_SESSION} | jq '.'
-#| grep -E -o "username.{0,100}"
+export BW_PASS=$(bw list items --search "${LOOKUP_ITEM}" --session ${BW_SESSION} | jq '.[].login.password')
 
 bw lock
