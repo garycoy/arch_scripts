@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# bitwarden CLI password lookup
+# uses jq - JSON parser - to parse the bw output
+
 LOOKUP_ITEM=$1
 
 if [[ "XX${LOOKUP_ITEM}XX" == "XXXX" ]];then
