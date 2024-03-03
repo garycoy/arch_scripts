@@ -1,6 +1,9 @@
 #!/bin/bash
 
+# run as user1
+
 . bw_lookup.sh theserver
 
-sudo sshpass -eBW_PASS sshfs -o allow_other,default_permissions user1@192.168.86.10:/data /storage
+echo "BW_PASS is : ${BW_PASS}"
 
+sshfs user1@192.168.86.10:/data /storage
